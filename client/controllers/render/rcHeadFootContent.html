@@ -1,0 +1,14 @@
+<Template name="rcHeadFootContent">
+
+<!-- Create our render controller (this is a famous-views shortcut)
+     Use a helper function to get the transition type
+-->
+    {{#RenderController transition=getTransition}}
+
+    {{> Template.dynamic template=currentTemplate}}
+
+    {{/RenderController}}
+
+
+
+</Template>

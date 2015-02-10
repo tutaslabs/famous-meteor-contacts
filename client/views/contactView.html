@@ -1,0 +1,44 @@
+<template name="contactView">
+
+<!--    <div id="b2">X</div> -->
+    <i id="b2" class="fa fa-times fa-2x"></i> <strong>(note: delete is disabled)</strong>
+    <div class="panel panel-default my-scroll" >
+
+        {{#with data}}
+        <h3 class="panel-title"><strong>{{name.first}} {{name.last}}</strong></h3>
+        <div class="panel-body">
+
+        {{location.city}}, {{location.state}}
+            <br>
+        {{#if details.active}}<strong>Active</strong>{{/if}}
+
+    <br><br>
+    <strong>Emails</strong><br>
+            {{#each email}}
+                {{this.label}}: <a href="mailto:{{this.address}}">{{this.address}}</a><br>
+            {{/each}}
+            <br>
+            <strong>Phone Numbers</strong><br>
+            Cell: <a href="tel:9999999999"><b>999-999-9999</b></a>
+    <h3>Notes</h3>
+    {{details.notes}}
+        </div>
+    {{/with}}
+
+        </div>
+
+
+
+    <div class="row">
+    <div class="col-xs-3" ><i id="b3" class="fa fa-envelope-o fa-2x"></i> </div>
+    <div class="col-xs-3" ><i id="b4" class="fa fa-phone fa-2x"></i> </div>
+    <div class="col-xs-3" ><i id="b5" class="fa fa-minus-circle fa-2x"></i></div>
+    <div class="col-xs-3" ><i id="b6" class="fa fa-pencil fa-2x"></i></div>
+
+    </div>
+
+
+
+
+
+</template>

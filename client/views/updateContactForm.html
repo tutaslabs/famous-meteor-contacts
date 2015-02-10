@@ -1,0 +1,10 @@
+<template name="updateContactForm">
+
+    {{#Scrollview size='[undefined,undefined]'}}
+    {{#Surface size='[undefined,true]' watchSize=true}}
+    {{> quickForm collection="Contacts" id="updateContactForm" doc=record type="update"}}
+
+    {{/Surface}}
+    {{/Scrollview}}
+
+</template>
