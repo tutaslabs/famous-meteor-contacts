@@ -84,10 +84,19 @@ Schemas.Contacts = new SimpleSchema
     type: Boolean
     defaultValue: true
 
+  createdAt:
+    type: Date
+    autoform:
+      omit: true
 
   avatarUrl:
     type: String
     optional: true
+    autoform:
+      omit: true
+  owner:
+    type: String
+    optional: false
     autoform:
       omit: true
 

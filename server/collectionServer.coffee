@@ -1,11 +1,11 @@
 
 Contacts.allow
     insert: (userId, doc) ->
-      return false
+      return true
     update: (userId, doc, fields, modifier) ->
       return true
     remove: (userId, doc) ->
-      return false
+      return true
 
 Meteor.publish 'contacts', ->
-    Contacts.find()
+    Contacts.find({owner: {$in: ["public",this.userId]}})

@@ -4,6 +4,11 @@ Template.contactView.helpers
 
   'email': ->
     return Session.get('contactView').emails
+  'active': ->
+    if this.details.active
+      'Active'
+    else
+      'In-Active'
 
 
 Template.contactView.events
@@ -12,6 +17,7 @@ Template.contactView.events
       cvs = FView.byId('cv').surface
       cvs.addClass 'hide'
       App.trans.set 0,{ duration: 0}
+      App.events.emit 'displayHeadTabs'
 
 
   'click #b3':  (evt,tmpl) ->
@@ -38,6 +44,7 @@ Template.contactView.events
       App.trans.set 90,{ duration: 500, curve: Famous.Easing.easeIn },->
         cvs.addClass 'hide'
         App.trans.set 0,{ duration: 0}
+        App.events.emit 'displayHeadTabs'
         Contacts.remove _id: Session.get('contactView')._id,
           (error,res) =>
             if error

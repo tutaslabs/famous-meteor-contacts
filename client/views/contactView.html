@@ -1,7 +1,7 @@
 <template name="contactView">
 
 <!--    <div id="b2">X</div> -->
-    <i id="b2" class="fa fa-times fa-2x"></i> <strong>(note: delete is disabled)</strong>
+    <i id="b2" class="fa fa-times fa-2x"></i>
     <div class="panel panel-default my-scroll" >
 
         {{#with data}}
@@ -10,7 +10,8 @@
 
         {{location.city}}, {{location.state}}
             <br>
-        {{#if details.active}}<strong>Active</strong>{{/if}}
+        <strong>{{active}}</strong>
+
 
     <br><br>
     <strong>Emails</strong><br>

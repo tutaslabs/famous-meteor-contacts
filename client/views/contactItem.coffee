@@ -4,6 +4,18 @@ Template.contactItem.events
     # so we have access to the unique chat ID value of the entry
     t = this._id
     Session.set 'contactView',this
-
+    App.events.emit 'hideHeadTabs'
     cvs = FView.byId('cv').surface
     cvs.removeClass 'hide'
+
+Template.contactItem.helpers
+  'public': ->
+    if this.owner is 'public'
+      'public'
+    else
+      'mine'
+  'active': ->
+      if this.details.active
+        'active'
+      else
+        'inactive'

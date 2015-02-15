@@ -3,4 +3,12 @@ template(name="header")
           P
       +Surface id="label" size="[170,50]" align="[.5,.5]" origin="[.5,.5]" class="headText" translate="[0,0,20]"
             | Contacts
+      +Surface id="user" size="[100,50]" align="[0,.5]" origin="[0,.5]" class="userText" translate="[0,0,20]"
+        | {{user}}
       +Surface template="nav" size = "[75,50]" align="[.85,.5]" origin="[.5,.5]" class="navText" translate="[0,0,20]"
+      +Surface id='login' size="[75,25]" align="[.4,1]" origin="[0,.5]" opacity=".5" translate="[0,10,10]" class="login"
+          | Login
+      +Surface id='logout' size="[75,25]" align="[0.05,1]" origin="[0,.5]" opacity=".5" translate="[0,10,10]" class="login hide"
+        | Logout
+      +Surface id='profile' size="[75,25]" align="[0.3,1]" origin="[0,.5]" opacity=".5" translate="[0,10,10]" class="login hide"
+            | Profile
