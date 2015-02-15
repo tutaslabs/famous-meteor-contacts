@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96dfa0f3-eac9-47e4-a9ee-a56f2b2baabe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/appMainView.jade" afterPath="$PROJECT_DIR$/client/views/appMainView.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/lib/bootstrap.coffee" afterPath="$PROJECT_DIR$/client/lib/bootstrap.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/bootstrap.js" afterPath="$PROJECT_DIR$/server/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/collectionServer.coffee" afterPath="$PROJECT_DIR$/server/collectionServer.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/collections.js" afterPath="$PROJECT_DIR$/common/collections.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/contactItem.coffee" afterPath="$PROJECT_DIR$/client/views/contactItem.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/contactItem.html" afterPath="$PROJECT_DIR$/client/views/contactItem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/contactScrollView.jade" afterPath="$PROJECT_DIR$/client/views/contactScrollView.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/contactView.coffee" afterPath="$PROJECT_DIR$/client/views/contactView.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/contactView.html" afterPath="$PROJECT_DIR$/client/views/contactView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/css/famviews.styl" afterPath="$PROJECT_DIR$/client/css/famviews.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/header.coffee" afterPath="$PROJECT_DIR$/client/views/header.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/header.jade" afterPath="$PROJECT_DIR$/client/views/header.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/insertContactForm.html" afterPath="$PROJECT_DIR$/client/views/insertContactForm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/nav.coffee" afterPath="$PROJECT_DIR$/client/views/nav.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/schemas.coffee" afterPath="$PROJECT_DIR$/common/schemas.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/views/alert.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/views/alert.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="autoforms.iws" />
@@ -57,8 +40,8 @@
       <file leaf-file-name="contactView.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/views/contactView.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3" vertical-offset="0" max-vertical-offset="1080">
-              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.33" vertical-offset="0" max-vertical-offset="1080">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -118,8 +101,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="395" />
-    <option name="y" value="68" />
+    <option name="x" value="338" />
+    <option name="y" value="59" />
     <option name="width" value="1313" />
     <option name="height" value="908" />
   </component>
@@ -331,12 +314,18 @@
       <created>1423260193664</created>
       <updated>1423260193664</updated>
     </task>
+    <task id="LOCAL-00001" summary="account and DB changes">
+      <created>1424040886091</created>
+      <updated>1424040886091</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="395" y="68" width="1313" height="908" extended-state="0" />
+    <frame x="338" y="59" width="1313" height="908" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -371,6 +360,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="account and DB changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="account and DB changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -583,6 +574,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32296652" vertical-offset="0" max-vertical-offset="418">
           <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -744,8 +736,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/views/contactView.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.33" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
