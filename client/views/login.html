@@ -1,0 +1,18 @@
+<template name="login">
+
+    {{#autoForm schema=Schemas.LoginForm id="login"}}
+    <fieldset>
+        <legend>Login</legend>
+        {{> afQuickField name="username" autocomplete="off"}}
+        {{> afQuickField name="password" autocomplete="off"}}
+        <div>
+            <button type="submit" class="btn mine btn-primary">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+
+        </div>
+    </fieldset>
+    {{/autoForm}}
+    <button id="cancel" class="btn btn-default">Cancel</button>
+    <div style="color: red; text-align: center;" id="lerror"></div>
+
+</template>

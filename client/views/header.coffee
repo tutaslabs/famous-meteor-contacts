@@ -5,13 +5,14 @@ Template.header.rendered = ->
     logouts = FView.byId('logout').surface
     profiles = FView.byId('profile').surface
     users = FView.byId('user').surface
+    loginForms = FView.byId('loginForm').surface
 
 
     App.events.on 'displayUpdate',->
       Session.set 'navIcon','<i class="fa fa-chevron-left"></i>'
       labs.setContent 'Update Contact'
 
-    App.events.on 'hideHeadTabs',->
+    App.events.on 'hideHeadTabs',=>
       logins.addClass 'hide'
       logouts.addClass 'hide'
       profiles.addClass 'hide'
@@ -30,10 +31,8 @@ Template.header.rendered = ->
         users.removeClass 'hide'
 
     logins.on 'click',->
-      Meteor.loginWithPassword 'demo','demo'
-      logins.addClass 'hide'
-      logouts.removeClass 'hide'
-      profiles.removeClass 'hide'
+      loginForms.removeClass 'hide'
+
     logouts.on 'click',->
       Meteor.logout()
       logins.removeClass 'hide'
@@ -43,13 +42,11 @@ Template.header.rendered = ->
 
     profiles.on 'click',->
       App.alert 'profile change'
-
+    App.events.emit 'displayHeadTabs'
 
 Template.header.helpers
   'user': ->
     if Meteor.user()
-      App.events.emit 'displayHeadTabs'
       return Meteor.user().username
-
     else
       return 'Guest'

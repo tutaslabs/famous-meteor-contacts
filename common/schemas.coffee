@@ -1,4 +1,15 @@
 Schemas = {}
+if Meteor.isClient
+  Template.registerHelper "Schemas", Schemas
+
+Schemas.LoginForm = new SimpleSchema
+  username:
+    type: String
+    min: 3
+  password:
+    type: String
+    min: 4
+
 
 Schemas.Contacts = new SimpleSchema
 
