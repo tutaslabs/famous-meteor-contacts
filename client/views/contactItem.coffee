@@ -7,6 +7,9 @@ Template.contactItem.events
     App.events.emit 'hideHeadTabs'
     cvs = FView.byId('cv').surface
     cvs.removeClass 'hide'
+# force scrollview to top
+    sv = FView.byId 'sv'
+    sv.view.setPosition 0
 
 Template.contactItem.helpers
   'public': ->

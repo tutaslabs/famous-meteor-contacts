@@ -5,7 +5,7 @@ template(name="appMainView")
             +View target="content" size="[undefined,undefined]" template="rcHeadFootContent"
 
         +View id = "cvv" modifier="Modifier" proportions="[.9,.8]" origin="[.5,.5]" align="[.5,.5]" opacity=".9"
-           +Scrollview size="[undefined,undefined]"
+           +Scrollview id="sv" size="[undefined,undefined]"
                 +Surface id="cv"  template="contactView" size="[undefined,true]" watchSize=true class="pop hide"
         +Surface id='alert' template="alert" size="[200,200]" origin="[.5,.5]" align="[.5,.5]" class="hide alert"
         +Surface id='loginForm' template="login" proportions="[.8,.7]" origin="[.5,.5]" align="[.5,.5]" class="hide pop"
