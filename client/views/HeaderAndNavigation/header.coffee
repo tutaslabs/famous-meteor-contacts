@@ -6,6 +6,7 @@ Template.header.rendered = ->
     profiles = FView.byId('profile').surface
     users = FView.byId('user').surface
     loginForms = FView.byId('loginForm').surface
+    profileForms = FView.byId('profileForm').surface
 
 
     App.events.on 'displayUpdate',->
@@ -41,12 +42,23 @@ Template.header.rendered = ->
 
 
     profiles.on 'click',->
-      App.alert 'profile change'
+      profileForms.removeClass 'hide'
+
+
     App.events.emit 'displayHeadTabs'
 
 Template.header.helpers
   'user': ->
     if Meteor.user()
+      logins = FView.byId('login').surface
+      logouts = FView.byId('logout').surface
+      profiles = FView.byId('profile').surface
+      users = FView.byId('user').surface
+
+      logins.addClass 'hide'
+      logouts.removeClass 'hide'
+      profiles.removeClass 'hide'
+      users.removeClass 'hide'
       return Meteor.user().username
     else
       return 'Guest'

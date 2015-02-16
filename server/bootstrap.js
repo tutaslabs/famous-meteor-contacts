@@ -96,6 +96,10 @@ Meteor.startup(function () {
                 subject: subject,
                 text: text
             });
+        },
+        changePasswords: function (doc,mod,docid) {
+            check(doc,Schemas.PasswordForm)
+            Accounts.setPassword(Meteor.userId(),doc.password)
         }
     });
 

@@ -18,6 +18,7 @@ Template.nav.events
           Session.set 'navIcon', '<i class="fa fa-plus"></i>'
           labs.setContent 'Contacts'
           App.events.emit 'displayHeadTabs'
+          AutoForm.resetForm 'insertContactForm'
       else if Session.get('currentHeadFootContentTemplate') is 'updateContactForm'
           Session.set 'currentHeadFootContentTemplate','contactScrollView'
           Session.set 'navIcon', '<i class="fa fa-plus"></i>'
