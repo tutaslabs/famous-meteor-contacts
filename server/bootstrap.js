@@ -120,6 +120,14 @@ Meteor.startup(function () {
             Meteor.users.remove({_id: userId});
 
             return '';
+        },
+        sendPasswordResetEmail: function (username) {
+
+            var userId = Meteor.users.findOne({username: username})._id
+
+            Accounts.sendResetPasswordEmail(userId);
+
+
         }
     });
 
