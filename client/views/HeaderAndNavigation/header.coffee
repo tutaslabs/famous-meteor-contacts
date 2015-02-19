@@ -32,16 +32,25 @@ Template.header.rendered = ->
         users.removeClass 'hide'
 
     logins.on 'click',->
+      if iOS
+        sv = FView.byId 'csv'
+        sv.view.goToPage 10
       loginForms.removeClass 'hide'
 
     logouts.on 'click',->
       Meteor.logout()
+      Session.set 'user',''
       logins.removeClass 'hide'
       logouts.addClass 'hide'
       profiles.addClass 'hide'
 
 
     profiles.on 'click',->
+      if iOS
+        sv = FView.byId 'csv'
+        sv.view.goToPage 10
+
+
       profileForms.removeClass 'hide'
 
 
@@ -50,6 +59,7 @@ Template.header.rendered = ->
 Template.header.helpers
   'user': ->
     if Meteor.user()
+      Session.set 'user',Meteor.userId()
       logins = FView.byId('login').surface
       logouts = FView.byId('logout').surface
       profiles = FView.byId('profile').surface
@@ -61,4 +71,13 @@ Template.header.helpers
       users.removeClass 'hide'
       return Meteor.user().username
     else
+      logins = FView.byId('login').surface
+      logouts = FView.byId('logout').surface
+      profiles = FView.byId('profile').surface
+      users = FView.byId('user').surface
+
+      logins.removeClass 'hide'
+      logouts.addClass 'hide'
+      profiles.addClass 'hide'
+      users.removeClass 'hide'
       return 'Guest'

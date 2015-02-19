@@ -100,6 +100,26 @@ Meteor.startup(function () {
         changePasswords: function (doc,mod,docid) {
             check(doc,Schemas.PasswordForm)
             Accounts.setPassword(Meteor.userId(),doc.password)
+        },
+        newAccount: function (doc,mod,docid) {
+            check(doc,Schemas.NewAccount)
+            var id = Accounts.createUser({
+                username: doc.username,
+                email: doc.email,
+                password: doc.password
+
+            });
+            Meteor.users.update({_id: id},{$set: {'profile.email': doc.email}} )
+            return '';
+        },
+        updateEmail: function (userId,email) {
+            Meteor.users.update({_id: Meteor.userId()},{$set: {emails: [{address: email,verified: false}]}})
+        },
+        deleteAccount: function (userId) {
+            Contacts.remove({owner: userId});
+            Meteor.users.remove({_id: userId});
+
+            return '';
         }
     });
 

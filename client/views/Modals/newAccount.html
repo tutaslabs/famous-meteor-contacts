@@ -1,0 +1,11 @@
+<template name="newaccount">
+    <fieldset>
+        <legend>Create Account</legend>
+        {{> quickForm schema=Schemas.NewAccount id="newAccountForm" type="method" meteormethod="newAccount"}}
+
+    </fieldset>
+    <hr>
+    <button id="nacancel" class="btn btn-default">Cancel</button>
+
+    <div style="color: red; text-align: center;" id="naerror"></div>
+</template>

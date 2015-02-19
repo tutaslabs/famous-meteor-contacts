@@ -4,7 +4,7 @@ window.Famous ?={}
 
 
 Meteor.startup  ->
-  Logger.setLevel 'famous-views','info'
+  Logger.setLevel 'famous-views','debug'
   Meteor.subscribe 'contacts'
   App.transitionContent =  'slideWindow'
   Session.set 'currentHeadFootContentTemplate','contactScrollView'
@@ -12,6 +12,7 @@ Meteor.startup  ->
   App.events = new Famous.EventHandler
   Session.set 'navIcon','<i class="fa fa-plus"></i>'
   Session.set 'alert','none'
+  Session.set 'user',''
 
 
 AutoForm.hooks
@@ -19,25 +20,27 @@ AutoForm.hooks
     onSubmit: (doc) ->
         Meteor.loginWithPassword doc.username,doc.password,(err) =>
           if ! err
-
+            Session.set 'user',Meteor.userId()
             this.done()
-            iOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent)
-            if iOS
-              $('.famous-container').remove()
-              window.location.href = '/'
-            $('#lerror').text('')
+            $('#lerror').text ''
+            App.events.emit 'displayHeadTabs'
             sv = FView.byId 'loginForm'
             sv.surface.addClass 'hide'
-            App.events.emit 'displayHeadTabs'
+            if iOS
+              sv = FView.byId 'csv'
+              sv.view.goToPage 0
+
           else
             AutoForm.resetForm 'login'
             $('input[type="submit"],.mine').prop('disabled',false)
-            $('#lerror').text('Invalid Username or Password')
+            $('#lerror').text 'Invalid Username or Password'
         return false
+
   profile:
     onSubmit: (doc) ->
       Meteor.users.update({_id: Meteor.userId()},{$set: {'profile.name': doc.name,'profile.email': doc.email}},(err) ->
         if ! err
+          Meteor.call 'updateEmail',Meteor.userId(),doc.email
           $('#perror').text('')
           sv = FView.byId 'profileForm'
           sv.surface.addClass 'hide'
@@ -48,14 +51,38 @@ AutoForm.hooks
 
       )
       $('input[type="submit"],.profile').prop('disabled',false)
+      if iOS
+        sv = FView.byId 'csv'
+        sv.view.goToPage 0
+
       return false
   changePasswordForm:
     onSuccess: (o,r,t) ->
+      $('#naerror').text('')
       sv = FView.byId 'passwordForm'
       sv.surface.addClass 'hide'
       App.events.emit 'displayHeadTabs'
       sv = FView.byId 'loginForm'
       sv.surface.removeClass 'hide'
+      if iOS
+       sv = FView.byId 'csv'
+       sv.view.goToPage 0
+
+  newAccountForm:
+    onSuccess: (o,r,t) ->
+      sv = FView.byId 'af'
+      sv.surface.addClass 'hide'
+      App.events.emit 'displayHeadTabs'
+      sv = FView.byId 'loginForm'
+      sv.surface.removeClass 'hide'
+      if iOS
+        sv = FView.byId 'csv'
+        sv.view.goToPage 0
+
+    onError: (o,e,t) ->
+      if o isnt 'validation'
+        $('#naerror').text(e.reason)
+
 
 
 App.alert = (text)  ->

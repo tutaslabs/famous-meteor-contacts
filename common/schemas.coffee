@@ -9,6 +9,27 @@ SimpleSchema.messages({
 if Meteor.isClient
   Template.registerHelper "Schemas", Schemas
 
+Schemas.NewAccount = new SimpleSchema
+  username:
+    type: String
+    min: 3
+  email:
+    type: String
+    regEx: SimpleSchema.RegEx.Email
+    optional: false
+  password:
+    type: String
+    label: "Enter password"
+    min: 4
+  confirmPassword:
+    type: String
+    label: "Enter the password again"
+    min: 4
+    custom: ->
+      if this.value isnt this.field('password').value
+        return "passwordMismatch"
+
+
 Schemas.LoginForm = new SimpleSchema
   username:
     type: String

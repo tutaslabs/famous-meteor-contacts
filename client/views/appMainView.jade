@@ -4,10 +4,17 @@ template(name="appMainView")
             +View target="header" size="[undefined,undefined]" template="header"
             +View target="content" size="[undefined,undefined]" template="rcHeadFootContent"
 
+
         +View id = "cvv" modifier="Modifier" proportions="[.9,.8]" origin="[.5,.5]" align="[.5,.5]" opacity=".9"
            +Scrollview id="sv" size="[undefined,undefined]"
                 +Surface id="cv"  template="contactView" size="[undefined,true]" watchSize=true class="pop hide"
         +Surface id='alert' template="alert" size="[200,200]" origin="[.5,.5]" align="[.5,.5]" class="hide alert"
         +Surface id='loginForm' template="login" proportions="[.8,.7]" origin="[.5,.5]" align="[.5,.5]" class="hide pop"
+
         +Surface id='profileForm' template="profile" proportions="[.8,.7]" origin="[.5,.5]" align="[.5,.5]" class="hide pop"
         +Surface id='passwordForm' template="password" proportions="[.8,.7]" origin="[.5,.5]" align="[.5,.5]" class="hide pop"
+
+
+        +View id = "accountForm" modifier="Modifier" proportions="[.9,.8]" origin="[.5,.5]" align="[.5,.5]"
+            +Scrollview id="asv" size="[undefined,undefined]"
+                +Surface id='af' template="newaccount" size="[undefined,true]" watchSize=true class="hide pop"
