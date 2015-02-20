@@ -15,6 +15,7 @@ Schemas.NewAccount = new SimpleSchema
     min: 3
   email:
     type: String
+    label: "Email (will be used for password resets)"
     regEx: SimpleSchema.RegEx.Email
     optional: false
   password:

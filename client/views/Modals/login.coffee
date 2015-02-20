@@ -25,6 +25,8 @@ Template.login.events
     un = AutoForm.getFieldValue 'login','username'
     if ! un
       $('#lerror').text "Please Enter Your Username"
+    else if un is 'demo'
+      $('#lerror').text "Can not change Demo account"
     else
       s = FView.fromTemplate tmp
       s.surface.addClass 'hide'
