@@ -149,6 +149,14 @@ Schemas.Contacts = new SimpleSchema
 
   createdAt:
     type: Date
+    optional: false
+    autoValue: ->
+      if this.isInsert
+        return new Date
+      else if this.isUpsert
+        return {$setOnInsert: new Date}
+      else
+        this.unset()
     autoform:
       omit: true
 

@@ -22,7 +22,8 @@ Meteor.startup(function () {
                 owner: 'public'
 
         },function (err) {
-
+            if (err)
+                console.log(err)
             })
         });
     }
@@ -32,7 +33,9 @@ Meteor.startup(function () {
     var i = Meteor.users.findOne({username: "admin"});
     if (!i) {
         Accounts.createUser({username: "admin",password: "ChangeMe"});
-        Accounts.createUser({username: "demo",password: "demo"});
+        var id = Accounts.createUser({username: "demo",password: "demo"});
+        Meteor.users.update({_id: id},{$set: {emails: [{address: 'demo@demo.com',verified: false}]}})
+        Meteor.users.update({_id: id},{$set: {'profile.name': 'demo'}});
 
     }
 
@@ -49,7 +52,9 @@ Meteor.startup(function () {
 
             Meteor.users.remove({});
             Accounts.createUser({username: "admin", password: "ChangeMe"});
-            Accounts.createUser({username: "demo", password: "demo"});
+            var id= Accounts.createUser({username: "demo", password: "demo"});
+            Meteor.users.update({_id: id},{$set: {emails: [{address: 'demo@demo.com',verified: false}]}})
+            Meteor.users.update({_id: id},{$set: {'profile.name': 'demo'}});
 
             _(7).times(function(n) {
                 var user = Fake.user();
@@ -71,7 +76,8 @@ Meteor.startup(function () {
                     },
                     owner: 'public'
                 },function (err) {
-
+                    if (err)
+                        console.log(err);
                 });
             });
 

@@ -33,7 +33,6 @@ Contacts.before.insert(function (userId, doc) {
             doc.owner = Meteor.userId();
         }
     }
-    doc.createdAt = Date.now();
 });
 
 Contacts.before.remove(function (userId,doc) {
