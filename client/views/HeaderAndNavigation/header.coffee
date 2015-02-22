@@ -7,6 +7,7 @@ Template.header.rendered = ->
     users = FView.byId('user').surface
     loginForms = FView.byId('loginForm').surface
     profileForms = FView.byId('profileForm').surface
+    offline = FView.byId('offline').surface
 
 
     App.events.on 'displayUpdate',->
@@ -81,3 +82,13 @@ Template.header.helpers
       profiles.addClass 'hide'
       users.removeClass 'hide'
       return 'Guest'
+  'status': ->
+
+    if Meteor.status().connected
+      offline = FView.byId('offline').surface
+      offline.removeClass 'offline'
+      return 'Online'
+    else
+      offline = FView.byId('offline').surface
+      offline.addClass 'offline'
+      return 'Offline'

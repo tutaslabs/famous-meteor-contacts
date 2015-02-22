@@ -1,3 +1,3 @@
 Template.contactScrollView.helpers
   'contacts': ->
-    query = Contacts.find {},{sort: {'name.last': 1}}
+    query = Contacts.find {owner: {$in: ["public",Meteor.userId()]}},{sort: {'name.last': 1}}

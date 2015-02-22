@@ -9,7 +9,8 @@ STATES = [
 ];
 
 Contacts = new Mongo.Collection('contacts');
-
+Ground.Collection(Meteor.users);
+Ground.Collection(Contacts);
 
 Contacts.before.insert(function (userId, doc) {
 
