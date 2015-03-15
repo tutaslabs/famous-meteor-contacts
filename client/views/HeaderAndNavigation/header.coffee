@@ -9,6 +9,9 @@ Template.header.rendered = ->
     profileForms = FView.byId('profileForm').surface
     offline = FView.byId('offline').surface
 
+    Meteor.call 'me',(err,res) ->
+        Session.set 'me',res
+
 
     App.events.on 'displayUpdate',->
       Session.set 'navIcon','<i class="fa fa-chevron-left"></i>'
@@ -87,7 +90,7 @@ Template.header.helpers
     if Meteor.status().connected
       offline = FView.byId('offline').surface
       offline.removeClass 'offline'
-      return 'Online'
+      return 'Online '+Session.get 'me'
     else
       offline = FView.byId('offline').surface
       offline.addClass 'offline'

@@ -1,2 +1,5 @@
 env.sh
 run.sh
+tutum.yaml
+Dockerfile
+buildit.sh

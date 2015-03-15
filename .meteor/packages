@@ -22,3 +22,5 @@ accounts-ui
 accounts-password
 email
 ground:db
+meteorhacks:kadira
+meteorhacks:kadira-profiler
